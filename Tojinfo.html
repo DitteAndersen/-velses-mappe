@@ -2,41 +2,62 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tøjinfo</title>
   </head>
-  <h1></h1>
-  <main>
-    <section id="Tøjinfo">
-      <article>
-        <h2>BRAND NEW T-SHIRT</h2>
-        <p>Brand</p>
-        <p>Size</p>
-      </article>
-    </section>
-  </main>
+
   <body>
+    <h1>Tøjinfo</h1>
+
+    <main>
+      <section id="Tøjinfo"></section>
+    </main>
+
     <script>
-      const Tøj = {
-        brand: "Ugly ass t-shirt",
-        size: "1,2,3,4",
-        stock: "27",
-        pris: "600,-",
-      };
+      const Tøjer = [
+        {
+          brand: "Ugly ass t-shirt",
+          size: "1,2,3,4",
+          stock: "27",
+          pris: "600,-",
+          Colors: ["blue", "black", "white"],
+        },
+        {
+          brand: "Cool hoodie",
+          size: "S,M,L",
+          stock: "12",
+          pris: "900,-",
+          Colors: ["green", "black"],
+        },
+        {
+          brand: "Basic tee",
+          size: "M,L,XL",
+          stock: "40",
+          pris: "300,-",
+          Colors: ["white", "grey"],
+        },
+      ];
 
       const Tøjinfo = document.querySelector("#Tøjinfo");
 
       function showTøj() {
-        console.log(Tøj);
-        Tøjinfo.innerHTML = `
-         <article>
-        <h2>${Tøj.brand}</h2>
-        <p>${Tøj.size}</p>
-        <p>${Tøj.stock}</p>
-         <p>${Tøj.pris}</p>
+        Tøjinfo.innerHTML = "";
 
-      </article>`;
+        console.log(Tøjer[0].Colors);
+
+        Tøjer.forEach((Tøj) => {
+          Tøjinfo.innerHTML += `
+          <article>
+            <h2>Brand: ${Tøj.brand}</h2>
+            <p>Size: ${Tøj.size}</p>
+            <p>Stock: ${Tøj.stock}</p>
+            <p>Pris: ${Tøj.pris}</p>
+            <p>Colors: ${Tøj.Colors.join(", ")}</p>
+          </article>
+        `;
+        });
       }
+
       showTøj();
     </script>
   </body>
