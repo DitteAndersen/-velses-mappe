@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=, initial-scale=1.0" />
+    <title>Objekt</title>
+  </head>
+  <h1>Personer</h1>
+  <main>
+    <section id="personliste">
+      <article>
+        <h2>Navn</h2>
+        <p>CPR</p>
+        <p>Email</p>
+      </article>
+    </section>
+  </main>
+  <body>
+    <script>
+      const person = {
+        navn: "Ole",
+        CPR: "10101010",
+        Email: "Ole@ole.dk",
+        Teledon: "10101010",
+      };
+
+      const personliste = document.querySelector("#personliste");
+
+      function showPerson() {
+        console.log(person);
+        personliste.innerHTML = `
+         <article>
+        <h2>${person.navn}</h2>
+        <p>${person.CPR}</p>
+        <p>${person.Email}</p>
+      </article>`;
+      }
+      showPerson();
+    </script>
+  </body>
+</html>
