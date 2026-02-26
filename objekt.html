@@ -2,39 +2,58 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Objekt</title>
   </head>
-  <h1>Personer</h1>
-  <main>
-    <section id="personliste">
-      <article>
-        <h2>Navn</h2>
-        <p>CPR</p>
-        <p>Email</p>
-      </article>
-    </section>
-  </main>
+
   <body>
+    <h1>Personer</h1>
+
+    <main>
+      <section id="personliste"></section>
+    </main>
+
     <script>
-      const person = {
-        navn: "Ole",
-        CPR: "10101010",
-        Email: "Ole@ole.dk",
-        Teledon: "10101010",
-      };
+      const personer = [
+        {
+          navn: "Ole",
+          CPR: "10101010",
+          Email: "Ole@ek.dk",
+          Telefon: "10101010",
+          Børn: ["Anne", "Sofie", "Bob"],
+        },
+        {
+          navn: "Ida",
+          CPR: "20202020",
+          Email: "ida@ek.dk",
+          Telefon: "20202020",
+          Børn: ["Bobby"],
+        },
+        {
+          navn: "Ali",
+          CPR: "30303030",
+          Email: "ali@ek.dk",
+          Telefon: "30303030",
+          Børn: ["Gert", "Petter"],
+        },
+      ];
 
       const personliste = document.querySelector("#personliste");
 
       function showPerson() {
-        console.log(person);
-        personliste.innerHTML = `
-         <article>
-        <h2>${person.navn}</h2>
-        <p>${person.CPR}</p>
-        <p>${person.Email}</p>
-      </article>`;
+        console.log(personer[0].Email);
+        personer.forEach((person) => {
+          personliste.innerHTML += `
+        <article class="personkort">
+          <h2>navn: ${person.navn}</h2>
+          <p>CPR: ${person.CPR}</p>
+          <p>Email: ${person.Email}</p>
+          <p>Børn: ${person.Børn.join(", ")}</p>
+        </article>
+      `;
+        });
       }
+
       showPerson();
     </script>
   </body>
